@@ -147,7 +147,7 @@ function addToList(selected, containerId) {
         coloredDiv.classList.add("coloredElem")
 
         //remove box when click on it
-        coloredDiv.addEventListener('click' ,()=> {
+        coloredDiv.addEventListener('click', () => {
             selected.count--
             document.querySelector(`.${selected.name}`).textContent = selected.count
             coloredDiv.remove()
@@ -212,6 +212,7 @@ dropDown.forEach(arrow => {
 
     })
 })
+
 
 
 // sort colored boxes randomly
@@ -293,7 +294,7 @@ counts.forEach(count => {
         const dataValue = event.target.getAttribute('data-id')
         for (let list of lists) {
             list.items.forEach(item => {
-                if(dataValue == list.id + '-' + item.id) {
+                if (dataValue == list.id + '-' + item.id) {
                     event.target.textContent = +newValue
                     item.count = +newValue
                     if (item.checked) {
@@ -312,7 +313,7 @@ colorPickers.forEach(color => {
         const dataValue = event.target.getAttribute('data-color')
         for (let list of lists) {
             list.items.forEach(item => {
-                if(dataValue == 'color-' + item.id) {
+                if (dataValue == 'color-' + item.id) {
                     item.color = event.target.value
                     if (item.checked) {
                         document.querySelector(`#elem${item.id}`).remove()
