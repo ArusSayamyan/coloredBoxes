@@ -145,14 +145,22 @@ function addToList(selected, containerId) {
     for (let i = 0; i < selected.count; i++) {
         const coloredDiv = document.createElement('div')
         coloredDiv.classList.add("coloredElem")
+
+        //remove box when click on it
+        coloredDiv.addEventListener('click' ,()=> {
+            selected.count--
+            document.querySelector(`.${selected.name}`).textContent = selected.count
+            coloredDiv.remove()
+        })
         coloredDiv.classList.add(`elem${selected.id}`)
         coloredDiv.style.backgroundColor = selected.color
-        resultContent.innerHTML += `${coloredDiv.outerHTML}`
+        resultContent.append(coloredDiv)
+
     }
     // draw in DOM
     wrappers.forEach(wrapper => {
         if (wrapper.id === containerId) {
-            wrapper.innerHTML += `${resultContent.outerHTML}`
+            wrapper.append(resultContent)
         }
     })
 
@@ -246,10 +254,9 @@ function generateRandomBoxes(array, id) {
     for (let i = 0; i < array.length; i++) {
         const coloredDiv = document.createElement('div')
         coloredDiv.classList.add('coloredElem')
-        coloredDiv.classList.add('coloredElem')
         coloredDiv.classList.add(`elem${array[i].id}`)
         coloredDiv.style.backgroundColor = array[i].color
-        randomResult.innerHTML += `${coloredDiv.outerHTML}`
+        randomResult.append(coloredDiv)
         const mainContent = result.querySelector(`#${id}`)
         randomResult.className = 'randomContent'
         mainContent.append(randomResult)
@@ -301,7 +308,7 @@ counts.forEach(count => {
 
 
 colorPickers.forEach(color => {
-    color.addEventListener('change', (event) => {
+    color.addEventListener('input', (event) => {
         const dataValue = event.target.getAttribute('data-color')
         for (let list of lists) {
             list.items.forEach(item => {
@@ -316,3 +323,4 @@ colorPickers.forEach(color => {
         }
     })
 })
+
