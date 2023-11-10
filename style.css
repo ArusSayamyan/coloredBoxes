@@ -19,7 +19,9 @@
     display: flex;
     justify-content: space-between;
     max-width: 250px;
+    position: relative;
 }
+
 .count {
     margin-right: 5px;
     cursor: pointer;
@@ -47,12 +49,14 @@
 .coloredElem {
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
 .content {
     overflow: hidden;
     height: 35px;
 }
+
 .content.active {
     overflow: auto;
     height: auto;
@@ -63,11 +67,12 @@
 }
 
 .rotate {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
 }
 
 .selectedItem {
     cursor: pointer;
+    display: none;
 }
 
 .checkboxLabel {
@@ -113,9 +118,71 @@
     right: 15px;
     top: 15px;
 }
+
 .randomContent {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 15px;
+}
+
+.listItem label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #9ea5a9;
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.listItem input:checked + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 12px;
+    border: solid #9ea5a9;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #9ea5a9;
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.label input:checked + .listTitle:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 12px;
+    border: solid #9ea5a9;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+.label {
+    position: relative;
+}
+
+.label input {
+    display: none;
 }

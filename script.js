@@ -84,7 +84,7 @@ lists.forEach(list => {
 
         container.innerHTML = `
 <img src="img/arrowDown.svg" alt="" class="dropDown">
-<label for="${list.id}">
+<label for="${list.id}" class="label">
 <input type="checkbox" class="selectedItem" id="${list.id}">
 <span class="listTitle">${list.listName}</span>
 </label>
@@ -169,6 +169,8 @@ function removeFromList(itemId) {
             removed.forEach(removeElem => {
                 removeElem.remove();
             })
+            const removedEl = document.querySelector(`#elem${itemId}`)
+            removedEl.remove();
         }
         if (itemId === list.id) {
             list.items.forEach(element => {
@@ -177,6 +179,10 @@ function removeFromList(itemId) {
                 element.checked = false
                 const removedEl = document.querySelector(`#elem${element.id}`)
                 removedEl.remove();
+                const removed = document.querySelectorAll(`.elem${element.id}`)
+                removed.forEach(element => {
+                    element.remove();
+                })
             })
         }
     })
@@ -240,6 +246,8 @@ function generateRandomBoxes(array, id) {
     for (let i = 0; i < array.length; i++) {
         const coloredDiv = document.createElement('div')
         coloredDiv.classList.add('coloredElem')
+        coloredDiv.classList.add('coloredElem')
+        coloredDiv.classList.add(`elem${array[i].id}`)
         coloredDiv.style.backgroundColor = array[i].color
         randomResult.innerHTML += `${coloredDiv.outerHTML}`
         const mainContent = result.querySelector(`#${id}`)
@@ -308,6 +316,3 @@ colorPickers.forEach(color => {
         }
     })
 })
-
-
-
