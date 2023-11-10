@@ -1,0 +1,121 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.lists, .result {
+    max-width: 500px;
+    height: 400px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.listItem {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+}
+.count {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.colorPicker {
+    width: 30px;
+    height: 30px;
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.resultWrapper {
+    padding: 10px;
+
+}
+
+.resultContent {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.coloredElem {
+    height: 20px;
+    width: 20px;
+}
+
+.content {
+    overflow: hidden;
+    height: 35px;
+}
+.content.active {
+    overflow: auto;
+    height: auto;
+}
+
+.dropDown {
+    cursor: pointer;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.selectedItem {
+    cursor: pointer;
+}
+
+.checkboxLabel {
+    cursor: pointer;
+}
+
+
+.resultContent {
+    margin-top: 10px;
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    border: none;
+    background: none;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    background: limegreen;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgba(50, 205, 50, 0.44);
+}
+
+.listContent {
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.randomContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+}
